@@ -2,6 +2,11 @@
 	"name": "kali",
 	"version": "0.0.1",
 	"author": "Vivek Panyam <viv.panyam@gmail.com>",
+	"main": "./dist/src/Kali.js",
+	"typings": "./dist/src/Kali.d.ts",
+	"scripts": {
+		"prepare": "tsc"
+	},
 	"dependencies": {
 		"webpack": "latest",
 		"ts-loader": "latest",

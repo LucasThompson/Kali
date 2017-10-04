@@ -24,24 +24,23 @@
 
 
 // aliases
-type int = number;
-type double = number;
-type size_t = number;
-type float = number;
+export type int = number;
+export type double = number;
+export type size_t = number;
+export type float = number;
 
-interface TypedArray extends ArrayLike<number> {
-	set<T extends TypedArray>(array: T, offset?: number): void;
-
+export interface TypedArray<T> extends ArrayLike<number> {
+	set(array: ArrayLike<number>, offset?: number): void;
 	// Not quite right, but this is more for a sanity check
-	subarray<T extends TypedArray>(begin?: number, end?: number): T;
+	subarray(begin: number, end?: number): T;
 }
 
-interface TypedArrayConstructor<T> {
+export interface TypedArrayConstructor<T> {
 	new (size: int): T;
 }
 
 // Queue using typed arrays
-class TypedQueue<T extends TypedArray> {
+export class TypedQueue<T extends TypedArray<T>> {
 	private buffer: T;
 	private typedArrayConstructor: TypedArrayConstructor<T>;
 
@@ -125,5 +124,3 @@ class TypedQueue<T extends TypedArray> {
 		return this.end - this.begin
 	}
 }
-
-export = TypedQueue;

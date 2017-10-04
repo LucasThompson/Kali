@@ -18,14 +18,8 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-import TypedQueue = require("./TypedQueue");
- 
+import { TypedQueue, int, size_t, float, double } from "./TypedQueue";
 
-// aliases
-type int = number;
-type double = number;
-type size_t = number;
-type float = number;
 
 // The c code used implicit conversion between floats and ints.
 // Since JS stores everything as floats, we need to manually truncate when we
@@ -64,7 +58,7 @@ class tempo_t {
 	public skip_total: uint64_t = 0;
 }
 
-class Kali {
+export class Kali {
 
 	private t: tempo_t;
 
@@ -291,9 +285,3 @@ class Kali {
 		this.t = t;
 	}
 }
-
-if (window) {
-	window['Kali'] = Kali
-}
-
-export = Kali;

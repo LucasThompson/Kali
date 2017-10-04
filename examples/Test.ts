@@ -16,7 +16,7 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-import Kali = require("../src/Kali");
+import { Kali } from "../src/Kali";
 
 var START_RATE = 1.7;
 var TARGET_RATE = 1;
@@ -24,7 +24,7 @@ var TARGET_RATE = 1;
 // Load audio
 var context = new (AudioContext)();
 
-function loadAudio(url, callback) {
+function loadAudio(url: string, callback: DecodeSuccessCallback) {
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
     request.responseType = 'arraybuffer';
